@@ -48,7 +48,7 @@ var labels = {
 				.attr("id", function(d, i) { return pie.cssPrefix + "segmentPercentage" + i + "-" + section; })
 				.attr("class", pie.cssPrefix + "segmentPercentage-" + section)
 				.text(function(d, i) {
-          return segments.getPercentage(pie, i) + "%";
+		  return segments.getPercentage(pie, i) + "%";
 				})
 				.style("font-size", settings.percentage.fontSize + "px")
 				.style("font-family", settings.percentage.font)
@@ -60,7 +60,7 @@ var labels = {
 			labelGroup.append("text")
 				.attr("id", function(d, i) { return pie.cssPrefix +  "segmentValue" + i + "-" + section; })
 				.attr("class", pie.cssPrefix + "segmentValue-" + section)
-				.text(function(d) { return d.value; })
+				.text(function(d) { return pie.options.labels.value.formatter ? pie.options.labels.value.formatter(d.value) : d.value; })
 				.style("font-size", settings.value.fontSize + "px")
 				.style("font-family", settings.value.font)
 				.style("fill", settings.value.color);
@@ -107,7 +107,7 @@ var labels = {
 					.attr("dx", function(d, i) { return (dims[i].mainLabel.width / 2) - (dims[i].percentage.width / 2); })
 					.attr("dy", function(d, i) { return dims[i].mainLabel.height; });
 				break;
-	 	}
+		}
 	},
 
 	computeLabelLinePositions: function(pie) {
@@ -348,7 +348,7 @@ var labels = {
 	},
 
 	checkConflict: function(pie, currIndex, direction, size) {
-        var i,curr;
+		var i,curr;
 
 		if (size <= 1) {
 			return;
@@ -380,7 +380,7 @@ var labels = {
 		// loop through *ALL* label groups examined so far to check for conflicts. This is because when they're
 		// very tightly fitted, a later label group may still appear high up on the page
 		if (direction === "clockwise") {
-            i=0;
+			i=0;
 			for (; i<=currIndex; i++) {
 				curr = pie.outerLabelGroupData[i];
 
@@ -392,7 +392,7 @@ var labels = {
 				}
 			}
 		} else {
-            i=size-1;
+			i=size-1;
 			for (; i>=currIndex; i--) {
 				curr = pie.outerLabelGroupData[i];
 

@@ -73,7 +73,8 @@ var defaultSettings = {
 		value: {
 			color: "#cccc44",
 			font: "arial",
-			fontSize: 10
+			fontSize: 10,
+			formatter: null
 		},
 		lines: {
 			enabled: true,
@@ -101,17 +102,17 @@ var defaultSettings = {
 	tooltips: {
 		enabled: false,
 		type: "placeholder", // caption|placeholder
-    string: "",
-    placeholderParser: null,
+	string: "",
+	placeholderParser: null,
 		styles: {
-      fadeInSpeed: 250,
+	  fadeInSpeed: 250,
 			backgroundColor: "#000000",
-      backgroundOpacity: 0.5,
+	  backgroundOpacity: 0.5,
 			color: "#efefef",
-      borderRadius: 2,
-      font: "arial",
-      fontSize: 10,
-      padding: 4
+	  borderRadius: 2,
+	  font: "arial",
+	  fontSize: 10,
+	  padding: 4
 		}
 	},
 	misc: {
